@@ -18,7 +18,7 @@ In spring tool, create a spring starter project,  add system dev tools.
  save and run program at localhost:8080
  
 
-``` Project Structure
+``` # Project Structure
 your-project-name/
 │
 ├── pom.xml  (or build.gradle)

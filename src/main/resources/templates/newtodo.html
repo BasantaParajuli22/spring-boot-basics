@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Management</title>
+</head>
+<body>
+    <h2>To-Do List Items:</h2>
+   	<ul>
+       <!-- Iterate over the todos list and display each item -->
+       <!-- Thymeleaf internally calls todo.getId() todo.title -->
+       <li th:each="todo : ${todos}">
+          <span>ID: <span th:text="${todo.id}"></span></span> - 
+          <span>Title: <span th:text="${todo.title}"></span></span> 
+          
+          <form th:action="@{'/newtodo/delete/'+${todo.id}}" method="get" style="display:inline;">
+			<button type="submit">Delete</button>
+		</form>
+        <!--  @{} This syntax is used in Thymeleaf to build a URL. -->
+      </li>
+	</ul>
+</body>
+</html>
