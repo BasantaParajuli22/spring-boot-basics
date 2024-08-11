@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class firstControl {
-   // @GetMapping("/") : This maps HTTP GET requests to the root URL (/) to this method.
+   //// @GetMapping("/") : This maps HTTP GET requests to the root URL (/) to this method.
    @GetMapping("/")
    public String home() {
        return "welcome to something";

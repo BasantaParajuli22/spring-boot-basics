@@ -1,4 +1,4 @@
-package com.example.springTrainning2;
+package com.example.springTrainning2.word;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

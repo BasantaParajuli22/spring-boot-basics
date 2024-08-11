@@ -5,18 +5,25 @@
 </head>
 <body>
     <h2>To-Do List Items:</h2>
-   	<ul>
+    
+    <form action="/newtodo-form" method="get">
+        <input type="text" name="addtask" required>
+        <button type="submit">Add</button>
+    </form>
+    
+    <ul>
        <!-- Iterate over the todos list and display each item -->
-       <!-- Thymeleaf internally calls todo.getId() todo.title -->
        <li th:each="todo : ${todos}">
-          <span>ID: <span th:text="${todo.id}"></span></span> - 
-          <span>Title: <span th:text="${todo.title}"></span></span> 
-          
-          <form th:action="@{'/newtodo/delete/'+${todo.id}}" method="get" style="display:inline;">
-			<button type="submit">Delete</button>
-		</form>
-        <!--  @{} This syntax is used in Thymeleaf to build a URL. -->
-      </li>
-	</ul>
+          <span>ID: <span th:text="${todo.id}"></span></span>:::
+          <span>Title: <span th:text="${todo.title}"></span></span>----
+          <span>Date: <span th:text="${#dates.format(todo.datee, 'dd-MM-yyyy ')}"></span></span>----
+          <span>Time: <span th:text="${#dates.format(todo.datee, 'hh-mm-ss ')}"></span></span>----
+          <span>Time: <span th:text="${todo.TimeAgo}"></span></span>
+          <!-- Deleting task using id -->
+          <form th:action="@{'/newtodo/delete/' + ${todo.id}}" method="get" style="display:inline;">
+              <button type="submit">Delete</button>
+          </form>
+       </li>
+    </ul>
 </body>
 </html>
