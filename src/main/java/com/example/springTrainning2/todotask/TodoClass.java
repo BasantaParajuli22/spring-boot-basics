@@ -4,29 +4,30 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-
-public class Todo {
+//new todo class
+public class TodoClass {
 	
 	private static int nextID = 1;
 	private int id;
 	private String title;
 	private Date datee;
 	private LocalDateTime createddate;
-
-
+	private String identifier;
 	
 	//when creating a object of this class u need pass string as title
-	public Todo(String title) {
+	public TodoClass(String title, String identifier) {
 		id = nextID;
-		this.title = title;
 		nextID++;
+		this.title = title;
+		this.identifier = identifier;
+		
 		datee = new Date();
 		
 		createddate = LocalDateTime.now();
+		
+		
 	}
-	
-	//Thymeleaf automatically calls the appropriate getter methods
-	// when you use expressions like ${todo.id} or ${todo.title}.
+
 	public int getId() {
 		return id;
 	}
@@ -34,11 +35,15 @@ public class Todo {
 	public String getTitle() {
         return title;
     }
+	public String getidentifier() {
+		return identifier;
+	}
+	
 	public Date getDatee() {
 		return datee;
 	}
-
 	
+
 	public LocalDateTime getcreateddate() {
 		return createddate;
 	}
@@ -58,8 +63,6 @@ public class Todo {
 	            return (seconds / 86400) + " days ago";
 	        }
 		}
-
-
 
 
 }
