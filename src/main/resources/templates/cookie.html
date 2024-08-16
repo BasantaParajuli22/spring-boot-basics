@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Todos</title>
+</head>
+<body>
+    <h1>User Todos</h1>
+
+    <p th:text="'User ID: ' + ${userid}">User ID will appear here</p>
+        <p th:text="'Cookie value: ' + ${cookieValue}">User ID will appear here</p>
+
+    <h2>Your Todo List</h2>
+    <ul>
+        <li th:each="todo : ${filteredList}">
+            <span th:text="${todo.title}">Todo Title</span> - 
+            <span th:text="${todo.getTimeAgo()}">Time Ago</span>
+        </li>
+    </ul>
+</body>
+</html>

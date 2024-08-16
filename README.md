@@ -14,7 +14,7 @@ notes of spring boot
 
 ### simple
 In spring tool, create a spring starter project,  add system dev tools.
- download gradle-8.9, make neccessary pathing environment variables
+ add gradle-8.9, make neccessary pathing environment variables
  save and run program at localhost:8080
  
 

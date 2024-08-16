@@ -13,40 +13,41 @@ public class TodoClass {
 	private Date datee;
 	private LocalDateTime createddate;
 	private String identifier;
+	private String UserId;
 	
 	//when creating a object of this class u need pass string as title
-	public TodoClass(String title, String identifier) {
+	public TodoClass(String title, String UserId) {
 		id = nextID;
 		nextID++;
 		this.title = title;
-		this.identifier = identifier;
+		this.identifier = "id" + identifier;
 		
 		datee = new Date();
 		
 		createddate = LocalDateTime.now();
-		
-		
 	}
-
+	
 	public int getId() {
 		return id;
 	}
-    // Getter for Title
 	public String getTitle() {
         return title;
     }
+	public String getUserId() {//generates random userid for cookie
+		return UserId;
+	}
+	
 	public String getidentifier() {
 		return identifier;
 	}
-	
 	public Date getDatee() {
 		return datee;
 	}
-	
-
 	public LocalDateTime getcreateddate() {
 		return createddate;
 	}
+	
+
 	
 	public String getTimeAgo() {
 		Duration duration = Duration.between(createddate, LocalDateTime.now());
@@ -64,8 +65,4 @@ public class TodoClass {
 	        }
 		}
 
-
 }
-
-
- 

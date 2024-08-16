@@ -1,5 +1,7 @@
 package com.example.springTrainning2.todotask;
 
+
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ServerTodo{
 		public ArrayList <TodoClass> todolist = new ArrayList<>();
-		
+
 		// Display the todo list
 		@GetMapping("/{identifier}/displaytodo")
 	    public String showtodos(@PathVariable("identifier")String identifier,
