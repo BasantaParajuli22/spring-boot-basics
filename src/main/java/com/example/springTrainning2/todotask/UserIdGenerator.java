@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
-
 public class UserIdGenerator {
 	
 	public static String sampleSpace = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -38,12 +36,5 @@ public class UserIdGenerator {
 
 	public static String getUserId() {
 		return generateId();
-	}
-	public class Main {
-	    public static void main(String[] args) {
-	        // Test the UserIdGenerator
-	        String userId = UserIdGenerator.getUserId();
-	        System.out.println("Generated User ID: " + userId);
-	    }
 	}
 }

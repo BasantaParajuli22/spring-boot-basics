@@ -1,4 +1,4 @@
-package com.example.springTrainning2;
+package com.example.springTrainning2.first;
 
 import java.util.Date;
 import java.util.Random;
