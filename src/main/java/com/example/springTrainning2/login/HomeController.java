@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +27,7 @@ public class HomeController{
     @GetMapping("/login/addwithCookie")
     public String addwithCookie(Model model, HttpServletRequest req, HttpServletResponse resp) {
     	
-        model.addAttribute("todos", todoList);
+        //model.addAttribute("todos", todoList);
         Cookie[] cookies = req.getCookies();
         String userid = null;
         
@@ -65,6 +66,8 @@ public class HomeController{
         return "log/todoform";
     }
     
+	
+	
     @GetMapping("/login/addwithCookie/add")
     public String addtask(Model model, HttpServletRequest req, HttpServletResponse resp, @RequestParam("title")String title) {
     	  
@@ -74,7 +77,7 @@ public class HomeController{
 
         if(cookies!=null) {
         	for(Cookie c: cookies) {
-        		if(c.getName().equals("id")); //if
+        		if(c.getName().equals("id")) //if
         		userid = c.getValue();
         		model.addAttribute("userid", userid);
         		break;
@@ -91,37 +94,35 @@ public class HomeController{
         	model.addAttribute("todos",todoList);
         }
         
-        return "log/todoform";
+        return "redirect:/login/addwithCookie";
     }
-//    @GetMapping("/login/addwithCookie/delete")
-//    public String deletetask(Model model, HttpServletRequest req, HttpServletResponse resp, @RequestParam("title")String title) {
-//    	    
-//        Cookie[] cookies = req.getCookies();
-//        String userid = null;
-//        if(cookies!=null) {//checking if same cookie
-//        	for(Cookie c: cookies) {
-//        		if(c.getName().equals("id")); 
-//        		userid = c.getValue();
-//        		break;
-//        	}
-//        }
-//        if (userid == null) {//if there is no cookie, send them to login page
-//            System.out.println("No cookie found : ");
-//            return "log/loginfail"; 
-//        } 
-//        
-//        if(userid!= null && title!= null) {
-//        	System.out.println(title);
-//        	System.out.println(userid);
-//        	//removing if same title found
-//        	todoList.removeIf(deltodo -> deltodo.getTitle().equals(title));
-//        	
-//        	model.addAttribute("todos",todoList);
-//        }
-//        
-//        return "log/todoform";
-//    }
-//    
+    
+    @GetMapping("/login/addwithCookie/delete/{id}")
+    public String deletetask(Model model, HttpServletRequest req, HttpServletResponse resp, @PathVariable("id") int id) {
+    	    
+        Cookie[] cookies = req.getCookies();
+        String userid = null;
+        if(cookies!=null) {//checking if same cookie
+        	for(Cookie c: cookies) {
+        		if(c.getName().equals("id"))
+        		userid = c.getValue();
+        		break;
+        	}
+        }
+        if (userid == null) {//if there is no cookie, send them to login page
+            System.out.println("No cookie found : ");
+            return "log/loginfail"; 
+        } 
+        
+        boolean removed = todoList.removeIf(deltodo -> deltodo.getId() == id);
+        	if (!removed) {
+        		System.out.println("No task found with ID: " + id);
+        	}
+        
+        model.addAttribute("todos",todoList);
+        return "redirect:/login/addwithCookie";
+    }
+    
 }
 
 

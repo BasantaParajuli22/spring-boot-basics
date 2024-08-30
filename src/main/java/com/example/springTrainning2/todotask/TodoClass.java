@@ -18,10 +18,10 @@ public class TodoClass {
 	//when creating a object of this class u need pass string as title
 	public TodoClass(String title, String UserId) {
 		id = nextID;
+		this.identifier = "id" + identifier;
 		nextID++;
 		this.title = title;
-		this.identifier = "id" + identifier;
-		
+		this.UserId = UserId;
 		datee = new Date();
 		
 		createddate = LocalDateTime.now();

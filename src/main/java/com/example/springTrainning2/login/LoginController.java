@@ -72,7 +72,7 @@ public class LoginController {
 				model.addAttribute("userid", userid);
 			} 
 			
-		  return "log/loggedin";
+		  return "redirect:/login/addwithCookie";
 		//if username and password not match then fails to login
 		}else {
 			return "log/loginfail";

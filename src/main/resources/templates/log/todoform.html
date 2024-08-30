@@ -7,20 +7,22 @@
     <h1>User Todos</h1>
 
     <p th:text="'User ID: ' + ${userid}">User ID will appear here</p>
-	
-	
-<h2>Add tasks here</h2>
-	<form action="/login/addwithCookie/add" method="get">
-		<input type="text" name="title" >
-		<button type="submit">ADD </button>
-	</form>
-	<ul>
-	<li th:each="todo : ${todos}">
-		<span th:text="'Number:: ' + ${todo.id}"></span>
-		<span th:text="'Task:: ' + ${todo.title}"></span>
-		<p th:text="'Created time:: ' + ${todo.datee}"></p>
-		
-	</li>
-	</ul>
+
+    <h2>Add tasks here</h2>
+    <form action="/login/addwithCookie/add" method="get">
+        <input type="text" name="title" placeholder="Enter task title" required>
+        <button type="submit">ADD</button>
+    </form>
+
+    <ul>
+        <li th:each="todo : ${filteredList}">
+            <span th:text="'Number: ' + ${todo.id}"></span><br>
+            <span th:text="'Task: ' + ${todo.title}"></span><br>
+			<form th:action="@{/login/addwithCookie/delete/{id} (id = ${todo.id})}">
+				 <button type="submit">DEL</button>
+			 </form>
+            <p th:text="'Created time: ' + ${todo.datee}"></p>
+        </li>
+    </ul>
 </body>
 </html>
