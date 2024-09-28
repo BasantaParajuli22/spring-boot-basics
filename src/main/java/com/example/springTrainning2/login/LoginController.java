@@ -23,6 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class LoginController {
 
 	 ArrayList<loginClass> todoList = new ArrayList<>();   
+	 
 
 	@GetMapping("/login")
 	public String login(){
@@ -51,7 +52,7 @@ public class LoginController {
 			String userid = null;
 
 			if(cookies != null) {//if there is already a sett cookie
-				for(Cookie cookie : cookies) {//compares every cookie with id
+				 for(Cookie cookie : cookies) {//compares every cookie with id
 					if(cookie.getName().equals("id")) {
 						userid = cookie.getValue();
 						

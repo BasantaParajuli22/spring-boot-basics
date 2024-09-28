@@ -1,5 +1,7 @@
 package com.example.springTrainning2.login;
 
+import java.util.Date;
+
 public class RegisterClass {
 	
 	private String username;
