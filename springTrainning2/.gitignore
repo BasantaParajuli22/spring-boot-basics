@@ -1,0 +1,49 @@
+# Gradle-specific files
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle/
+
+# Eclipse-specific files
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA-specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# STS (Spring Tool Suite)-specific files
+.springBeans
+
+# Mac OS specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
+Desktop.ini
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Compiled class files
+*.class
+
+# Maven-specific
+target/
+
+# Other IDE-specific files
+.vscode/
+
+# Ignore jar/war/ear files
+*.jar
+*.war
+*.ear
